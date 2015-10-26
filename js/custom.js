@@ -9,3 +9,10 @@ $('select[name=country]').change(function(e){
     $('#postalCodeBox').hide();
   }
 });
+
+$("#registrationForm").validetta({
+  showErrorMessages : true,
+  onError : function( event ){
+    alert( 'Stop bro !! There are some errors.');
+  }
+});
