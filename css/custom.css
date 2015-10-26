@@ -1,0 +1,58 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.logo {
+  width: 75px;
+}
+
+.tooltip.right .tooltip-inner {
+  background-color: #8C7C88;
+}
+.tooltip.right .tooltip-arrow {
+  border-right-color: #8C7C88;
+ }
+
+.hero-container {
+  margin-left: 0px;
+  margin-right: 0px;
+  background: url('../images/hero.jpg');
+  border-bottom: 5px solid #c1c1c1;
+}
+
+.hero {
+  height: 400px;
+  width: 100%;
+  display: table;
+  box-sizing: border-box;
+  padding: 20px;
+  color: white;
+}
+
+.hero > .hero-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.hero-inner > h1 {
+  font-weight: 900;
+  background: #8D7C88;
+  display: inline-block;
+  padding: 5px;
+}
+
+.hero-inner > h2 {
+  font-weight: 200;
+  background: #8D7C88;
+  display: inline-block;
+  padding: 5px;
+}
+
+.registration-form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#postalCodeBox {
+  display: none;
+}
