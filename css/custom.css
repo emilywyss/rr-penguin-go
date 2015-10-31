@@ -12,10 +12,14 @@ body {
 .tooltip.right .tooltip-arrow {
   border-right-color: #8C7C88;
  }
+.sidebar-nav li .tooltip {
+  text-indent: 0px;
+  line-height: 20px;
+}
 
 .hero-container {
-  margin-left: 0px;
-  margin-right: 0px;
+  margin-left: -20px;
+  margin-right: -20px;
   background: url('../images/hero.jpg');
   border-bottom: 5px solid #c1c1c1;
 }

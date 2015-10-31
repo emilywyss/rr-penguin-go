@@ -1,5 +1,5 @@
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="tooltip"]').tooltip({ container: 'body' })
 })
 
 $('select[name=country]').change(function(e){
@@ -7,12 +7,5 @@ $('select[name=country]').change(function(e){
     $('#postalCodeBox').show();
   }else{
     $('#postalCodeBox').hide();
-  }
-});
-
-$("#registrationForm").validetta({
-  showErrorMessages : true,
-  onError : function( event ){
-    alert( 'Stop bro !! There are some errors.');
   }
 });

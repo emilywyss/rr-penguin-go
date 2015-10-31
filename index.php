@@ -1,3 +1,15 @@
+<?php
+  if (isset($_POST["submit"])) {
+    $fullName = $_POST['fullName'];
+    $email = $_POST['email'];
+    $addressLine1 = $_POST['addressLine1'];
+    $addressLine2 = $_POST['addressLine2'];
+    $city = $_POST['city'];
+    $country = $_POST['country'];
+    $state = $_POST['state'];
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,9 +58,12 @@
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
+          <br>
         </li>
         <li>
-          <a href="#"><span data-placement="right" data-toggle="tooltip" title="Home" class="glyphicon glyphicon-home"></span></a>
+          <a href="#">
+            <span data-placement="right" data-toggle="tooltip" title="Home" class="glyphicon glyphicon-home"></span>
+          </a>
         </li>
         <li>
           <a href="#"><span data-placement="right" data-toggle="tooltip" title="Dashboard" class="glyphicon glyphicon-dashboard"></span></a>
@@ -84,47 +99,47 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <form class="registration-form" id="registrationForm">
+            <form class="registration-form" role="form" method="post" action="index.php">
               <h3>Registration Form</h3>
               <p>Give us your information to sign up for this awesome event. We will get in touch with you shortly to approve your application.</p>
               <hr>
               <div class="form-group">
                 <label for="fullName">Full name*</label>
-                <input type="text" class="form-control" id="fullName" placeholder="ie: John Smith">
+                <input type="text" class="form-control" id="fullName" name="fullName" value="" placeholder="ie: John Smith">
               </div>
               <div class="form-group">
                 <label for="email">Email address*</label>
-                <input type="email" class="form-control" id="email" placeholder="ie: jsmith@example.com">
+                <input type="email" class="form-control" id="email" name="email" value="" placeholder="ie: jsmith@example.com">
               </div>
               <div class="form-group">
                 <label for="addressLine1">Address Line 1</label>
-                <input type="text" class="form-control" id="addressLine2" placeholder="ie: 123 Some Street">
+                <input type="text" class="form-control" id="addressLine2" name="addressLine2" value="" placeholder="ie: 123 Some Street">
               </div>
               <div class="form-group">
                 <label for="addressLine2">Address Line 2</label>
-                <input type="text" class="form-control" id="addressLine2" placeholder="ie: Unit 456">
+                <input type="text" class="form-control" id="addressLine2" name="addressLine2" value="" placeholder="ie: Unit 456">
               </div>
               <div class="form-group">
                 <label for="city">City</label>
-                <input type="text" class="form-control" id="city" placeholder="ie: Someville">
+                <input type="text" class="form-control" id="city" name="city" value="" placeholder="ie: Someville">
               </div>
               <div class="form-group">
                 <label for="country">Country</label>
-                <select name="country" id="country" class="form-control">
+                <select name="country" id="country" value="" class="form-control">
                 </select>
               </div>
               <div class="form-group">
                 <label for="state">State/Province</label>
-                <select name="state" id="state" class="form-control">
+                <select name="state" id="state" value="" class="form-control">
                 </select>
               </div>
               <div class="form-group" id="postalCodeBox">
                 <label for="postalCode">Postal Code</label>
-                <input type="text" class="form-control" id="postalCode" placeholder="ie: A1B 2C3" cdnPostal>
+                <input type="text" class="form-control" id="postalCode" name="postalCode" value="" placeholder="ie: A1B 2C3" cdnPostal>
               </div>
               <div class="form-group">
                 <label for="telephone">Phone Number</label>
-                <input type="tel" class="form-control" id="telephone" placeholder="ie: (555) 555-5555">
+                <input type="tel" class="form-control" id="telephone" name="telephone" value="" placeholder="ie: (555) 555-5555">
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>

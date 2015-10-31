@@ -15,36 +15,37 @@
 }
 
 #wrapper.toggled {
-    padding-left: 100px;
+    padding-left: 75px;
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 100px;
+    left: 75px;
     width: 0;
     height: 100%;
-    margin-left: -100px;
+    margin-left: -75px;
+    overflow-y: auto;
     background: #f8f8f8;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-    font-size: 20px;
 }
 
 #wrapper.toggled #sidebar-wrapper {
-    width: 100px;
+    width: 75px;
 }
 
 #page-content-wrapper {
     width: 100%;
     position: absolute;
+    padding: 15px;
 }
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -100px;
+    margin-right: -75px;
 }
 
 /* Sidebar Styles */
@@ -52,23 +53,16 @@
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 100px;
+    width: 75px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .sidebar-nav li {
-    text-indent: 20px;
-    line-height: 60px;
+    text-indent: 15px;
+    line-height: 40px;
 }
-
-.sidebar-nav li .tooltip {
-    text-indent: 0px;
-    line-height: 20px;
-    font-size: 20px;
-}
-
 
 .sidebar-nav li a {
     display: block;
@@ -78,7 +72,7 @@
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #8C7C88;
+    color: #bbb;
     background: rgba(255,255,255,0.2);
 }
 
@@ -87,14 +81,24 @@
     text-decoration: none;
 }
 
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
 .sidebar-nav > .sidebar-brand a:hover {
-    color: #8C7C88;
+    color: #fff;
     background: none;
 }
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 100px;
+        padding-left: 75px;
     }
 
     #wrapper.toggled {
@@ -102,7 +106,7 @@
     }
 
     #sidebar-wrapper {
-        width: 100px;
+        width: 75px;
     }
 
     #wrapper.toggled #sidebar-wrapper {
@@ -110,6 +114,7 @@
     }
 
     #page-content-wrapper {
+        padding: 20px;
         position: relative;
     }
 
