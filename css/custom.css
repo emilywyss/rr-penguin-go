@@ -1,3 +1,5 @@
+/*--Layout styling--*/
+
 body {
   font-family: 'Raleway', sans-serif;
 }
@@ -5,6 +7,16 @@ body {
 .logo {
   width: 75px;
 }
+
+footer {
+  position: relative;
+  background: #333;
+  color: #fff;
+  z-index: 9999;
+  padding: 20px;
+}
+
+/*--Navigation Tooltip--*/
 
 .tooltip.right .tooltip-inner {
   background-color: #8C7C88;
@@ -17,6 +29,7 @@ body {
   line-height: 20px;
 }
 
+/*--Hero Styling--*/
 .hero-container {
   margin-left: -20px;
   margin-right: -20px;
@@ -52,6 +65,7 @@ body {
   padding: 5px;
 }
 
+/*--Form Styling--*/
 .registration-form {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -59,12 +73,4 @@ body {
 
 #postalCodeBox {
   display: none;
-}
-
-footer {
-  position: relative;
-  background: #333;
-  color: #fff;
-  z-index: 9999;
-  padding: 20px;
 }
