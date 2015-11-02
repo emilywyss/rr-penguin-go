@@ -7,6 +7,42 @@
     $city = $_POST['city'];
     $country = $_POST['country'];
     $state = $_POST['state'];
+    $postalCode = $_POST['postalCode'];
+    $telephone = ($_POST['telephone']);
+
+    $from = 'Code Test Form';
+    $to = 'emilywyss@gmail.com';
+    $subject = 'New submission to code test';
+
+    $body = 'From: $fullName\n E-mail: $email\n Address: $addressLine1 $addressLine2\n $city $state $postalCode\n Telephone: $telephone';
+
+    if (!$fullName) {
+      $errName = 'Oopsie Daisy, you did not enter your name!';
+    }
+
+    if (!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $errEmail = 'Yoohoo, you did not enter a valid email. Give it another try.';
+    }
+
+    function validateCanadaPC($postalCode) {
+     if(preg_match("/^([a-ceghj-npr-tv-z]){1}[0-9]{1}[a-ceghj-npr-tv-z]{1}[0-9]{1}[a-ceghj-npr-tv-z]{1}[0-9]{1}$/i",$postalCode))
+        return true;
+     else
+        return false;
+    }
+
+    if (($postalCode !== '') && (validateCanadaPC($postalCode) !== true)) {
+      $errPostalCode = 'Please Reselect your country and enter a valid canadian postal code!';
+    }
+
+    if (!$errName && !$errEmail && !$errPostalCode) {
+      if (mail ($to, $subject, $body, $from)) {
+        $result='<div class="alert alert-success">Thanks for your registration. I will get back to you shortly</div>';
+      } else {
+        $result='<div class="alert alert-danger">Whoops, the computer gremlin ate your submission and it failed to make it to me. You should try again later.</div>';
+      }
+    }
+
   }
 ?>
 
@@ -105,23 +141,25 @@
               <hr>
               <div class="form-group">
                 <label for="fullName">Full name*</label>
-                <input type="text" class="form-control" id="fullName" name="fullName" value="" placeholder="ie: John Smith">
+                <input type="text" class="form-control" id="fullName" name="fullName" value="<?php echo htmlspecialchars($_POST['fullName']); ?>" placeholder="ie: John Smith">
+                <?php echo "<p class='text-danger'>$errName</p>";?>
               </div>
               <div class="form-group">
                 <label for="email">Email address*</label>
-                <input type="email" class="form-control" id="email" name="email" value="" placeholder="ie: jsmith@example.com">
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($_POST['email']); ?>" placeholder="ie: jsmith@example.com">
+                <?php echo "<p class='text-danger'>$errEmail</p>";?>
               </div>
               <div class="form-group">
                 <label for="addressLine1">Address Line 1</label>
-                <input type="text" class="form-control" id="addressLine2" name="addressLine2" value="" placeholder="ie: 123 Some Street">
+                <input type="text" class="form-control" id="addressLine2" name="addressLine2" value="<?php echo htmlspecialchars($_POST['addressLine1']); ?>" placeholder="ie: 123 Some Street">
               </div>
               <div class="form-group">
                 <label for="addressLine2">Address Line 2</label>
-                <input type="text" class="form-control" id="addressLine2" name="addressLine2" value="" placeholder="ie: Unit 456">
+                <input type="text" class="form-control" id="addressLine2" name="addressLine2" value="<?php echo htmlspecialchars($_POST['addressLine2']); ?>" placeholder="ie: Unit 456">
               </div>
               <div class="form-group">
                 <label for="city">City</label>
-                <input type="text" class="form-control" id="city" name="city" value="" placeholder="ie: Someville">
+                <input type="text" class="form-control" id="city" name="city" value="<?php echo htmlspecialchars($_POST['city']); ?>" placeholder="ie: Someville">
               </div>
               <div class="form-group">
                 <label for="country">Country</label>
@@ -135,19 +173,27 @@
               </div>
               <div class="form-group" id="postalCodeBox">
                 <label for="postalCode">Postal Code</label>
-                <input type="text" class="form-control" id="postalCode" name="postalCode" value="" placeholder="ie: A1B 2C3" cdnPostal>
+                <input type="text" class="form-control" id="postalCode" name="postalCode" value="<?php echo htmlspecialchars($_POST['postalCode']); ?>" placeholder="ie: A1B2C3 (NO SPACES)">
               </div>
               <div class="form-group">
                 <label for="telephone">Phone Number</label>
-                <input type="tel" class="form-control" id="telephone" name="telephone" value="" placeholder="ie: (555) 555-5555">
+                <input type="tel" class="form-control" id="telephone" name="telephone" value="<?php echo htmlspecialchars($_POST['telephone']); ?>" placeholder="ie: (555) 555-5555">
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+              <input id="submit" name="submit" type="submit" value="Send" class="btn btn-default">
+              <br>
+              <?php echo "<p class='text-danger'>$errPostalCode</p>";?>
+              <?php echo $result; ?>
+
             </form>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <footer>
+    © Copyright Emily Wyss 2015
+  </footer>
 
 
   <!-- jQuery -->

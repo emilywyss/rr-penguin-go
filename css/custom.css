@@ -60,3 +60,11 @@ body {
 #postalCodeBox {
   display: none;
 }
+
+footer {
+  position: relative;
+  background: #333;
+  color: #fff;
+  z-index: 9999;
+  padding: 20px;
+}
